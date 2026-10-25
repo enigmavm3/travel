@@ -10,10 +10,13 @@ if (!isPreview) {
   document.head.appendChild(analytics);
   gtag('js', new Date());
   gtag('config', 'G-Z9PB2VHZMN');
+  gtag('config', 'AW-18387420345');
 }
 
 document.querySelectorAll('.line-cta').forEach(link => {
   link.addEventListener('click', () => {
+    // Google Ads「LINE加好友」轉換，與其他頁共用同一個轉換動作。
+    if (!isPreview) gtag('event', 'conversion', {'send_to': 'AW-18387420345/MrKQCIS7g-YcELmJ579E'});
     if (!isPreview) gtag('event', 'add_line_friend_travel', {
       event_category: 'engagement',
       event_label: 'add_line_friend_travel',
@@ -37,4 +40,18 @@ if (!motion.matches && 'IntersectionObserver' in window) {
     element.classList.add('is-ready');
     observer.observe(element);
   });
+}
+
+// 對話示意影片：進入畫面才播放；減少動態效果時停在 poster，保留 controls 讓使用者自行播放。
+const chatVideo = document.querySelector('.conversation-video');
+if (chatVideo && !motion.matches) {
+  chatVideo.removeAttribute('controls');
+  const tryPlay = () => chatVideo.play().catch(() => chatVideo.setAttribute('controls', ''));
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.isIntersecting ? tryPlay() : chatVideo.pause());
+    }, { threshold: 0.25 }).observe(chatVideo);
+  } else {
+    tryPlay();
+  }
 }
