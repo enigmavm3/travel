@@ -1,0 +1,101 @@
+/* 旅遊溝通指南（閱讀型頁面）共用樣式；字體、色票、header/footer 沿用 style.css */
+.guide-page{--paper:#fff;--night:#1a1b1f;--lime:#d9f68a;--line:#e3e5e8;--soft:#f5f6f7;background:var(--paper)}
+.guide-page .header nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px;text-decoration-color:var(--orange)}
+.guide-col{width:min(720px,calc(100% - 40px));margin-inline:auto}
+[lang="th"]{font-family:"Noto Sans Thai","Leelawadee UI","Tahoma","Noto Sans TC",sans-serif}
+
+/* 標題區：深色帶 */
+.guide-hero{background:var(--night);color:#fff;padding:52px 0 46px}
+.guide-hero .eyebrow{color:var(--lime);margin-top:28px}
+.guide-hero h1{font-size:clamp(30px,5.2vw,46px);line-height:1.3;letter-spacing:-.03em;font-weight:900;margin:12px 0 22px}
+.byline{font-size:13px;color:#c3c7cd;letter-spacing:.03em}
+.breadcrumb ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 8px;font-size:12px;color:#aeb3ba}
+.breadcrumb li+li:before{content:"›";margin-right:8px;color:#7d838b}
+.breadcrumb a{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.breadcrumb li[aria-current]{overflow-wrap:anywhere}
+
+/* 內文 */
+.guide-body{padding:44px 0 24px;font-size:17px;line-height:1.95;color:var(--ink)}
+.guide-body p{margin:0 0 1.1em;overflow-wrap:anywhere}
+.guide-body h2{font-size:clamp(24px,3.6vw,30px);line-height:1.45;letter-spacing:-.025em;font-weight:900;margin:64px 0 20px;padding-top:18px;border-top:3px solid var(--night)}
+.guide-body h3{font-size:19px;line-height:1.6;letter-spacing:-.01em;margin:34px 0 8px}
+.guide-body a:not(.copy-th){color:#0b57d0;text-decoration:underline;text-underline-offset:3px}
+.guide-body a.line-cta{color:var(--ink);font-weight:800;text-decoration-color:var(--orange);text-decoration-thickness:3px}
+.guide-body strong{font-weight:800}
+.guide-body .note{background:var(--soft);border-left:4px solid var(--orange);padding:14px 18px;font-size:15px;line-height:1.85}
+
+/* 目錄 */
+.toc{margin:34px 0 8px;padding:22px 24px;background:var(--night);color:#fff}
+.toc-title{font-size:12px!important;letter-spacing:.16em;font-weight:800;color:var(--lime);margin:0 0 10px!important}
+.toc ol{margin:0;padding-left:1.4em;font-size:15px;line-height:1.75}
+.toc li{margin:4px 0}
+.toc li::marker{color:var(--lime);font-weight:800}
+.guide-body .toc a{color:#fff;text-decoration:none}
+.guide-body .toc a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* 表格 */
+.table-wrap{overflow-x:auto;margin:22px 0 28px;-webkit-overflow-scrolling:touch}
+.guide-body table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.7}
+.guide-body thead th{background:var(--night);color:#fff;text-align:left;font-weight:700;padding:10px 12px;font-size:13px;letter-spacing:.04em}
+.guide-body tbody th,.guide-body tbody td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid var(--line);font-weight:400}
+.guide-body tbody th{font-weight:800;white-space:nowrap}
+.guide-body tbody tr:nth-child(even){background:#fafafb}
+.thai{display:block;font-size:16px;line-height:1.9;overflow-wrap:anywhere}
+.copy-th{margin-top:8px;font:inherit;font-size:12px;font-weight:700;color:var(--ink);background:var(--lime);border:0;border-radius:999px;padding:5px 12px;cursor:pointer;min-height:32px}
+.copy-th:hover{background:#cbee6a}
+.copy-th:focus-visible{outline:3px solid #165bea;outline-offset:2px}
+.copy-th.done{background:var(--night);color:var(--lime)}
+
+/* 寬版範本表：桌面向兩側延伸 */
+@media(min-width:900px){
+  .table-wrap.wide{width:min(1040px,calc(100vw - 80px));margin-left:50%;transform:translateX(-50%)}
+  .phrase-table th[scope="row"]{width:118px;white-space:normal}
+  .phrase-table td:nth-child(3){width:34%}
+}
+
+/* 三步驟 */
+.steps{list-style:none;counter-reset:step;margin:22px 0 28px;padding:0}
+.steps li{counter-increment:step;position:relative;padding:0 0 18px 52px;margin:0}
+.steps li:before{content:counter(step);position:absolute;left:0;top:2px;width:34px;height:34px;border-radius:50%;background:var(--orange);color:var(--ink);font-weight:900;display:grid;place-items:center;font-size:16px;line-height:1}
+
+/* FAQ */
+.faq-q{padding-left:14px;border-left:4px solid var(--lime)}
+.faq-a{padding-left:18px}
+
+/* 內連 */
+.related-inline{background:#fbfdf2;border:1px solid #dfeeb4;padding:14px 18px;font-size:15px;line-height:1.85}
+
+/* 文末延伸 */
+.guide-next{padding:36px 0 72px}
+.guide-next .eyebrow{color:var(--muted);margin-bottom:14px}
+.guide-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.guide-card{position:relative;display:block;padding:20px 48px 20px 20px;background:var(--night);color:#fff;transition:transform .2s}
+.guide-card:hover{transform:translateY(-3px)}
+.guide-card.back{background:var(--soft);color:var(--ink)}
+.guide-card-no{display:block;font-size:11px;letter-spacing:.12em;color:var(--lime);font-weight:700;margin-bottom:6px}
+.guide-card.back .guide-card-no{color:var(--muted)}
+.guide-card strong{font-size:17px;line-height:1.5}
+.guide-card-go{position:absolute;right:18px;top:50%;translate:0 -50%;font-size:22px;color:var(--orange)}
+.guide-page .footer p a{text-decoration:underline;text-underline-offset:3px}
+
+/* 手機：表格改成每列一張卡片，三欄（或四欄）都看得到 */
+@media(max-width:720px){
+  .guide-hero{padding:36px 0 34px}
+  .guide-hero .eyebrow{margin-top:20px}
+  .guide-body{padding-top:32px;font-size:16px;line-height:1.9}
+  .guide-body h2{margin-top:52px}
+  .toc{padding:18px 18px}
+  .table-wrap{overflow-x:visible}
+  .guide-body table,.guide-body tbody,.guide-body tr,.guide-body tbody th,.guide-body tbody td{display:block;width:auto}
+  .guide-body thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .guide-body tbody tr{border:1px solid var(--line);border-top:4px solid var(--night);margin:0 0 14px;background:#fff!important}
+  .guide-body tbody th{background:var(--soft);white-space:normal;padding:10px 14px;border-bottom:1px solid var(--line)}
+  .guide-body tbody td{padding:10px 14px;border-bottom:1px dashed var(--line)}
+  .guide-body tbody td:last-child{border-bottom:0}
+  .guide-body tbody td:before{content:attr(data-label);display:block;font-size:11px;letter-spacing:.08em;font-weight:800;color:var(--muted);margin-bottom:2px}
+  .guide-body tbody th:before{content:attr(data-label);display:block;font-size:11px;letter-spacing:.08em;font-weight:700;color:var(--muted)}
+  .thai-cell{background:#fbfdf2}
+  .guide-cards{grid-template-columns:1fr}
+}
+@media(max-width:600px){.guide-page .header nav{display:none}}
+@media(prefers-reduced-motion:reduce){.guide-card:hover{transform:none}}
