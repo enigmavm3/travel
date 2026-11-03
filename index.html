@@ -20,6 +20,29 @@
 <title>不懂當地語言，無法暢玩嗎？｜翻譯小幫手</title>
 <link rel="stylesheet" href="style.css">
 <script src="script.js" defer></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9PB2VHZMN"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z9PB2VHZMN');
+gtag('config', 'AW-18387420345');
+</script>
+<script>
+// Google Ads 轉換 + GA4 事件：點擊任何 LINE 加好友連結 (lin.ee)
+document.addEventListener('click', function (e) {
+  var a = e.target && e.target.closest ? e.target.closest('a[href*="lin.ee"]') : null;
+  if (a && typeof gtag === 'function') {
+    gtag('event', 'conversion', {'send_to': 'AW-18387420345/MrKQCIS7g-YcELmJ579E'});
+    gtag('event', 'cta_click', {
+      event_category: 'engagement',
+      event_label: 'add_line_friend_travel',
+      page_title: document.title
+    });
+  }
+}, true);
+</script>
 </head>
 <body>
 <a class="skip" href="#main">跳到主要內容</a>
